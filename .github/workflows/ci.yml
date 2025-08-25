@@ -1,1 +1,19 @@
+# ⚠️ TestComplete requires a Windows self-hosted runner with a valid license
+# This CI is only a placeholder
+
+name: TestComplete Automation
+
+on: [workflow_dispatch]
+
+jobs:
+  testcomplete-run:
+    runs-on: [self-hosted, windows]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Run TestComplete Tests
+        run: |
+          "C:\Program Files (x86)\SmartBear\TestComplete 15\bin\TestComplete.exe" ^
+          "Tests\YourProject.pjs" /r /e /project:YourProject /test:Test_Login_ValidCredentials
 
